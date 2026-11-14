@@ -1,0 +1,32 @@
+schema_version: 1
+
+# signal lab's manifest for the eigenomar ecosystem: what this repository is
+# and where its documents are. it points at documents and holds none of their
+# content. update it in the same change that adds a document, CI or a
+# deployment.
+
+id: signal_lab
+name: signal lab
+description: an interactive sandbox for synthetic sensor data and target tracking, where moving targets give noisy or missing detections and a Kalman filter's estimated tracks are compared with them and with the ground truth, with the simulation and tracking in C++ running as WebAssembly in the browser
+status: active
+tags: [c++, webassembly, kalman-filter, target-tracking]
+
+links:
+  deployment: null                 # not deployed yet; planned for signal.eigenomar.com, which B1 sets (docs/plan.md)
+
+documents:
+  plan: docs/plan.md
+  architecture: null               # no code yet
+  engineering: null
+  decisions: null
+
+delivery:
+  ci: none                         # B1 adds CI on GitHub Actions
+  releases: none
+  deployment: none                 # B1 adds the deploy to Cloudflare, with deploys_on: merge
+
+artifacts:
+  diagrams: null
+  test_reports: null
+  coverage: null
+  monitoring: null
