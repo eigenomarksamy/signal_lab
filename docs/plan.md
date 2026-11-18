@@ -2,7 +2,7 @@
 
 an interactive, synthetic radar-like sensor and tracking sandbox. users watch moving targets, see noisy or missing measurements, and compare raw detections with estimated trajectories. the simulation and the tracking run in C++20, compiled to WebAssembly for the browser and natively for tests and benchmarks, with no server. it is planned for `signal.eigenomar.com`.
 
-nothing is built yet. this plan holds the bootstrap (B1), the MVP (M1–M5) and phase 2 (L1–L5), and the shared decisions they rely on. the signal lab is the second of three C++ labs, after `pathfinding_playground` and before `gravity_engine`, each in its own repository. it reuses the pathfinding playground's bootstrap approach, not its code. work across the three, such as their release order or a library they might later share, is coordinated in the ecosystem, not planned here.
+nothing is built yet. this plan holds the bootstrap (B1), the MVP (M1–M5) phase 2 (L1–L5), the adoption of the ecosystem's standards (DOC1, SCM1), and the shared decisions they rely on. the signal lab is the second of three C++ labs, after `pathfinding_playground` and before `gravity_engine`, each in its own repository. it reuses the pathfinding playground's bootstrap approach, not its code. work across the three, such as their release order or a library they might later share, is coordinated in the ecosystem, not planned here.
 
 ## how this plan works
 
@@ -14,6 +14,8 @@ nothing is built yet. this plan holds the bootstrap (B1), the MVP (M1–M5) and 
   | B | the bootstrap: native, WebAssembly and web builds, CI and the deploy |
   | M | the MVP, released at `signal.eigenomar.com` |
   | L | phase 2: later work, after the MVP's release |
+  | DOC | the lab's documents: vision, architecture, design, testing strategy, and verification and validation |
+  | SCM | source control and delivery: CI, branching, protection, releases and versioning |
 
 - **each ticket** says what to do, what it needs, and when it is done. its "done when" is its acceptance criteria. a need is a hard need: the ticket starts once it is done. a ticket in another repository is named with that repository, as `pathfinding_playground` B1.
 - **issues.** every open ticket gets one GitHub issue in this repository. the issue's title starts with the ticket's id, and its body links the ticket's anchor here without copying it. the ticket holds the scope and history, and the issue holds status, priority and blockers.
@@ -67,6 +69,8 @@ the three C++ labs share their constraints, stack, architecture and definition o
 | [L3](#l3) | extended or unscented Kalman filtering for nonlinear sensors | M5 | todo |
 | [L4](#l4) | more capable association and multi-object tracking | M5 | todo |
 | [L5](#l5) | controlled benchmarks: accuracy, clutter resilience and computational cost | M5 | todo |
+| [DOC1](#doc1) | the lab's documents | `meta-eigenomar` ST1 | todo |
+| [SCM1](#scm1) | the ecosystem's SCM strategy | `meta-eigenomar` ST2 | todo |
 
 ## bootstrap
 
@@ -244,6 +248,27 @@ not MVP. it starts once the MVP is released ([M5](#m5)): the MVP begins with doc
 - **needs:** M5.
 - **done when:** the benchmarks run from the repository with fixed seeds and documented conditions, measure the error against the ground truth across clutter levels and the engine's step time natively and in WebAssembly, and their published results name the hardware, browser and conditions, without presenting them as objective sensor accuracy.
 
+## ecosystem standards
+
+the ecosystem's contract, in `meta-eigenomar`, is adding two standards that every repository adopts: the documents each one keeps, and how each one manages its source and delivers it. DOC1 and SCM1 adopt them here, each once its standard is designed. until then, their issues stay in the backlog. neither needs B1, and B1 needs neither.
+
+<a id="doc1"></a>
+
+### DOC1 · the lab's documents
+
+- **do:** write this lab's product vision, architecture, design, testing strategy, and verification and validation (V&V) documents, in the shape the ecosystem's document standard sets. where a file or section already covers one, name it rather than copy it. today the vision is this plan's opening, the architecture and the stack are shared decision SD3's outcomes under [shared decisions](#shared-decisions), the MVP's scope and constraints are under [MVP](#mvp), and [M5](#m5)'s done-when holds the release's checks. `CLAUDE.md` asks B1 to record the layout in `docs/architecture.md` or `CLAUDE.md`, so whichever lands second gives that document its place among the five. written before B1, the documents describe the planned lab, and B1 and the MVP keep them true.
+- **needs:** the ecosystem's document standard (`meta-eigenomar` ST1).
+- **done when:** each of the five documents exists, or names the file or section that holds it, and follows the standard's outline. `project.yaml` names them under the standard's keys, and the ecosystem's validator passes. nothing in them is confidential, since this repository is public.
+
+<a id="scm1"></a>
+
+### SCM1 · the ecosystem's SCM strategy
+
+- **do:** adopt the ecosystem's SCM strategy through its adoption checklist: CI, branching, protection of `main`, versioning and releases, the health report and dependency updates. [B1](#b1) plans CI on GitHub Actions and a deploy on every merge to `main`. if the strategy is ready before B1 starts, B1 follows it and this ticket checks the rest. otherwise this ticket brings B1's workflows in line.
+- **needs:** the ecosystem's SCM strategy (`meta-eigenomar` ST2).
+- **done when:** every item on the checklist is applied here, or recorded here as an exception the strategy allows, with its reason. `project.yaml`'s `delivery` and `CLAUDE.md` say what runs, any workflow passes on `main`, and the ecosystem's validator passes.
+
 ## log
 
+- 2026-11-18 · plan · added DOC1 and SCM1, in two new lanes, at the owner's request: this repository's adoption of the ecosystem's document standard and SCM strategy, which are designed in `meta-eigenomar`. each needs its standard, so its issue waits in the backlog.
 - 2026-11-14 · plan · created by the ecosystem setup session, from the three C++ labs' shared plan, where this lab's part is now a link here. the bootstrap that the labs' plan has this lab reuse from the pathfinding playground became B1, after `pathfinding_playground` B1 as a planning dependency. its section became the MVP's scope and constraints, with stage 2's five steps as M1–M5, and its phase 2 L1–L5, in the same order. the MVP's seven acceptance criteria are in M1–M5's done-whens. the shared constraints and the definition of done are shared decision SD3, cited by its id. `project.yaml` validates, with no CI, releases or deployment until B1, `CLAUDE.md` imports the ecosystem's shared rules, and `.gitattributes` holds `* text=auto eol=lf`. nothing else in the repository changed.
