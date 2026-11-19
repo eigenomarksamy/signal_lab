@@ -18,6 +18,7 @@ nothing is built yet. this plan holds the bootstrap (B1), the MVP (M1–M5) phas
   | SCM | source control and delivery: CI, branching, protection, releases and versioning |
 
 - **each ticket** says what to do, what it needs, and when it is done. its "done when" is its acceptance criteria. a need is a hard need: the ticket starts once it is done. a ticket in another repository is named with that repository, as `pathfinding_playground` B1.
+- **size** is the index's column, on the ecosystem's scale, the same value as the ticket's issue's `Size` in the ecosystem's GitHub Project: xxs takes minutes, xs under an hour, s an hour or two, m about a session, l two or three, xl four to six and xxl more. tbd means an open decision or work not yet planned decides it. a change to one is made to the other in the same session.
 - **issues.** every open ticket gets one GitHub issue in this repository. the issue's title starts with the ticket's id, and its body links the ticket's anchor here without copying it. the ticket holds the scope and history, and the issue holds status, priority and blockers.
 - **shared decisions** bind this lab and other repositories. this plan states each outcome it relies on in one line and cites the decision by its id. a change to one is made in the decision first.
 - **adding work.** new work goes here as a ticket in a lane. this repository is public, so confidential work never goes in this file. the ecosystem's shared rules, which `CLAUDE.md` imports, say where it goes.
@@ -56,21 +57,21 @@ the three C++ labs share their constraints, stack, architecture and definition o
 
 ## index
 
-| ticket | title | needs | status |
-| --- | --- | --- | --- |
-| [B1](#b1) | bootstrap: native, WebAssembly and web, built and deployed from GitHub Actions | none | todo |
-| [M1](#m1) | simulation clock, target dynamics and seeded sensor model | B1 | todo |
-| [M2](#m2) | single-target Kalman filter, with tests, uncertainty and diagnostics | M1 | todo |
-| [M3](#m3) | multi-target extension and simple association | M2 | todo |
-| [M4](#m4) | scene, tracks and plots UI, presets and parameter explanations | M3 | todo |
-| [M5](#m5) | release: validation, performance measurements, deployment and README | M4 | todo |
-| [L1](#l1) | synthetic range-Doppler signals and an FFT visualization | M5 | todo |
-| [L2](#l2) | detection pipeline with thresholding or CFAR, feeding the tracker | L1 | todo |
-| [L3](#l3) | extended or unscented Kalman filtering for nonlinear sensors | M5 | todo |
-| [L4](#l4) | more capable association and multi-object tracking | M5 | todo |
-| [L5](#l5) | controlled benchmarks: accuracy, clutter resilience and computational cost | M5 | todo |
-| [DOC1](#doc1) | the lab's documents | `meta-eigenomar` ST1 | todo |
-| [SCM1](#scm1) | the ecosystem's SCM strategy | `meta-eigenomar` ST2 | todo |
+| ticket | title | size | needs | status |
+| --- | --- | --- | --- | --- |
+| [B1](#b1) | bootstrap: native, WebAssembly and web, built and deployed from GitHub Actions | l | none | todo |
+| [M1](#m1) | simulation clock, target dynamics and seeded sensor model | m | B1 | todo |
+| [M2](#m2) | single-target Kalman filter, with tests, uncertainty and diagnostics | m | M1 | todo |
+| [M3](#m3) | multi-target extension and simple association | m | M2 | todo |
+| [M4](#m4) | scene, tracks and plots UI, presets and parameter explanations | l | M3 | todo |
+| [M5](#m5) | release: validation, performance measurements, deployment and README | m | M4 | todo |
+| [L1](#l1) | synthetic range-Doppler signals and an FFT visualization | l | M5 | todo |
+| [L2](#l2) | detection pipeline with thresholding or CFAR, feeding the tracker | m | L1 | todo |
+| [L3](#l3) | extended or unscented Kalman filtering for nonlinear sensors | m | M5 | todo |
+| [L4](#l4) | more capable association and multi-object tracking | tbd | M5 | todo |
+| [L5](#l5) | controlled benchmarks: accuracy, clutter resilience and computational cost | m | M5 | todo |
+| [DOC1](#doc1) | the lab's documents | tbd | `meta-eigenomar` ST1 | todo |
+| [SCM1](#scm1) | the ecosystem's SCM strategy | tbd | `meta-eigenomar` ST2 | todo |
 
 ## bootstrap
 
