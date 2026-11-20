@@ -55,6 +55,8 @@ the three C++ labs share their constraints, stack, architecture and definition o
 - **no shared library yet:** common code is extracted only once at least two labs need it.
 - **done:** each public release meets SD3's definition of done, which [M5](#m5)'s done-when cites.
 
+every app under eigenomar.com shows the same tab icon, eigenomar.com's lambda with its two colors swapped, a light-blue tile and a near-black lambda: shared decision SD5. [B1](#b1)'s shell takes it, so the lab is never deployed without it.
+
 ## index
 
 | ticket | title | size | needs | status |
@@ -92,6 +94,7 @@ the builds, checks and deploy every later ticket uses, set up once in this repos
   - [ ] linting and formatting, native sanitizers and CI checks are configured.
   - [ ] it builds natively on Windows and in CI on Linux, with Emscripten from `emsdk` on both, and the native tests pass on Windows started from `c:\` as well as from `C:\`.
   - [ ] a minimal Vite and React shell has a canvas, basic controls and an about/source panel.
+  - [ ] the shell's tab shows the ecosystem's icon (shared decision SD5), served from the app's own assets, in a light and a dark browser theme.
   - [ ] a production static deployment on Cloudflare, built and deployed from GitHub Actions, answers at `signal.eigenomar.com`.
   - [ ] the README lists what to install on each platform: the compiler, CMake, `emsdk` and Node. `CLAUDE.md`'s commands section lists the setup, build, test and run commands, each working on Windows and Linux.
   - [ ] in the same change as the deploy, `project.yaml`'s `delivery` says `ci: github-actions`, `deployment: cloudflare` and `deploys_on: merge`, its `links.deployment` is `https://signal.eigenomar.com`, and `CLAUDE.md`'s delivery section says what CI runs and that every merge to `main` deploys. the ecosystem's validator passes.
@@ -271,5 +274,6 @@ the ecosystem's contract, in `meta-eigenomar`, is adding two standards that ever
 
 ## log
 
+- 2026-11-20 · B1 · added the ecosystem's tab icon (shared decision SD5) to B1's checklist, at the owner's request, rather than a ticket of its own: the shell B1 builds is the first page the lab deploys. B1's size is unchanged.
 - 2026-11-18 · plan · added DOC1 and SCM1, in two new lanes, at the owner's request: this repository's adoption of the ecosystem's document standard and SCM strategy, which are designed in `meta-eigenomar`. each needs its standard, so its issue waits in the backlog.
 - 2026-11-14 · plan · created by the ecosystem setup session, from the three C++ labs' shared plan, where this lab's part is now a link here. the bootstrap that the labs' plan has this lab reuse from the pathfinding playground became B1, after `pathfinding_playground` B1 as a planning dependency. its section became the MVP's scope and constraints, with stage 2's five steps as M1–M5, and its phase 2 L1–L5, in the same order. the MVP's seven acceptance criteria are in M1–M5's done-whens. the shared constraints and the definition of done are shared decision SD3, cited by its id. `project.yaml` validates, with no CI, releases or deployment until B1, `CLAUDE.md` imports the ecosystem's shared rules, and `.gitattributes` holds `* text=auto eol=lf`. nothing else in the repository changed.
